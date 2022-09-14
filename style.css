@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    overflow: hidden;
+    background-image: url(./img/body-bg.fw.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
+
+.intro-screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    /* background-color: rgba(55, 30, 20, .5); */
+}
+
+.map-screen {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    cursor: none;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-screen h1 {
+    font-size: 4rem;
+    color: #fff;
+}
+
+
+
+
+
+
+
+.game-controller {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    /* animation: controller 500ms linear 1s 1 forwards; */
+}
+
+.countryName {
+
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, .3);
+    padding: .5rem;
+    color: #fff;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .5);
+    /* animation: btntext-effect 300ms linear 1s 1 forwards; */
+
+
+}
+
+.play {
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, .3);
+    padding: .5rem 2rem;
+    color: #fff;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .5);
+    cursor: pointer;
+    font-weight: bolder;
+    /* animation: btnPlay-effect 300ms linear 1s 1 forwards; */
+
+}
+
+.intro-animation {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    pointer-events: none;
+    /* overflow: hidden; */
+}
+
+.hand-div {
+    /* background-color: aqua; */
+    height: 134px;
+    overflow: hidden;
+    /* animation: hand-div 500ms ease-in-out 2s 1 forwards; */
+    position: absolute;
+    opacity: 0;
+
+}
+
+.hand {
+    width: 350px;
+    object-fit: contain;
+    transform: translate(0px, -100px);
+    /* animation: hand-upDowneffect 1s ease-in-out 2s infinite forwards; */
+}
+
+.world-map-square {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    /* background-color: brown; */
+    transform: translate(40px, 30px);
+    background-image: url(./img/world-map.fw.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    position: absolute;
+    opacity: 0;
+    transition: transform 1s linear;
+    /* animation: squareMap 500ms linear 1s 1 forwards,
+        sqrMap-downeffect 500ms ease-in-out 2s 1 forwards,
+        sqrMap-upDownEffect 1s ease-in-out 2.5s infinite forwards; */
+}
+
+.real-map {
+    width: 700px;
+    /* border: 2px solid #fff; */
+    transform: translate(0px, 180px);
+    transition: transform 1s ease-in-out;
+    /* animation: realMap 500ms linear 1 forwards; */
+    position: absolute;
+}
+
+/* js kısmında play butonuna basıldıktan sonra eklenecekler */
+
+
+.game-controller-effect {
+    animation: controller 500ms linear 1s 1 forwards;
+}
+
+.play-effect {
+    animation: btnPlay-effect 300ms linear 1s 1 forwards;
+}
+
+.btnText-effect {
+    animation: btntext-effect 300ms linear 1s 1 forwards;
+}
+
+.realMap-effect {
+    animation: realMap 500ms linear 2s 1 forwards;
+}
+
+.world-map-square-effect {
+    animation:
+        squareMap 500ms linear 3s 1 forwards,
+        sqrMap-downeffect 500ms ease-in-out 3s 1 forwards,
+        sqrMap-upDownEffect 1s ease-in-out 3.5s 6 forwards,
+        square-out 1s ease-in-out 8.1s 1 forwards;
+}
+
+.hand-effect {
+    animation: hand-upDowneffect 1s ease-in-out 3s 5 forwards,
+        hand-out 1s ease-in-out 8s 1 forwards;
+}
+
+.hand-div-effect {
+    animation: hand-div 500ms ease-in-out 3s 1 forwards,
+        hand-div-out 1s ease-in-out 8s 1 forwards;
+}
+
+.intro-screen-effect {
+    animation: intro-screen 500ms linear 9s 1 forwards;
+}
+
+.map-screen-effect {
+    animation: map-screen 500ms linear 9s 1 forwards;
+}
+
+
+/* keyframes */
+
+
+@keyframes realMap {
+    0% {
+        transform: translate(0px, 180px);
+    }
+
+    100% {
+        transform: translate(0px, 180px);
+        opacity: 0;
+    }
+
+
+
+}
+
+@keyframes squareMap {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        background-image: url(./img/world-map-two.fw.png);
+        opacity: 1;
+    }
+}
+
+
+@keyframes sqrMap-downeffect {
+    0% {
+        transform: translate(40px, 30px);
+    }
+
+    100% {
+        transform: translate(40px, 300px);
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@keyframes sqrMap-upDownEffect {
+    0% {
+        transform: translate(40px, 300px);
+    }
+
+    50% {
+        transform: translate(40px, 270px);
+    }
+
+    100% {
+        transform: translate(40px, 300px);
+    }
+}
+
+@keyframes sqrMap-rotateEffect {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hand-upDowneffect {
+    0% {
+        transform: translate(0px, -100px);
+    }
+
+    50% {
+        transform: translate(0px, -110px);
+    }
+
+    100% {
+        transform: translate(0px, -100px);
+    }
+}
+
+@keyframes hand-div {
+    0% {
+        height: 134px;
+        opacity: 0;
+    }
+
+    100% {
+        height: 480px;
+        opacity: 1;
+    }
+}
+
+@keyframes hand-div-out {
+    0% {
+        height: 480px;
+
+    }
+
+    100% {
+        height: 134px;
+    }
+}
+
+@keyframes hand-out {
+    0% {}
+
+    100% {
+        transform: translate(0px, -550px);
+
+
+    }
+}
+
+@keyframes square-out {
+    0% {}
+
+    100% {
+
+        transform: translate(40px, -300px);
+
+
+    }
+}
+
+@keyframes controller {
+    0% {
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes btnPlay-effect {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(0px, 50px);
+        opacity: 0;
+    }
+}
+
+
+@keyframes btntext-effect {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(0px, -50px);
+        opacity: 0;
+    }
+}
+
+
+@keyframes intro-screen {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+        cursor: none;
+        visibility: hidden;
+    }
+}
+
+
+@keyframes map-screen {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        pointer-events: all;
+        user-select: auto;
+        cursor: pointer;
+        visibility: visible;
+
+    }
+}
